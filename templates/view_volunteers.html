@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block title %}View Volunteers{% endblock %}
+{% block content %}
+  <h2>All Volunteers</h2>
+  <div class="table-responsive">
+    <table class="table table-striped table-hover">
+      <thead>
+        <tr><th>ID</th><th>Name</th><th>Phone</th><th>Email</th></tr>
+      </thead>
+      <tbody>
+      {% for v in volunteers %}
+        <tr>
+          <td>{{ v.id }}</td>
+          <td>{{ v.name }}</td>
+          <td>{{ v.phone }}</td>
+          <td>{{ v.email }}</td>
+        </tr>
+      {% endfor %}
+      </tbody>
+    </table>
+  </div>
+{% endblock %}

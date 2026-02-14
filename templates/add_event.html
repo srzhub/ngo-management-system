@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block title %}Create Event{% endblock %}
+
+{% block content %}
+  <!-- Full-width section -->
+  <div class="bg-light py-5">
+    <div class="container-fluid">
+      <h1 class="mb-4">Create Event</h1>
+      <form method="POST" class="row g-4">
+        <div class="col-lg-6">
+          <label class="form-label">Event Name</label>
+          <input type="text" name="name" class="form-control form-control-lg" placeholder="Enter event name" required>
+        </div>
+        <div class="col-lg-3">
+          <label class="form-label">Date</label>
+          <input type="date" name="date" class="form-control form-control-lg" required>
+        </div>
+        <div class="col-lg-3">
+          <label class="form-label">Location</label>
+          <input type="text" name="location" class="form-control form-control-lg" placeholder="Venue" required>
+        </div>
+        <div class="col-12">
+          <label class="form-label">Description</label>
+          <textarea name="description" rows="5" class="form-control form-control-lg" placeholder="Event details…" required></textarea>
+        </div>
+        <div class="col-12 text-end">
+          <button type="submit" class="btn btn-success btn-lg">Add Event</button>
+        </div>
+      </form>
+    </div>
+  </div>
+{% endblock %}

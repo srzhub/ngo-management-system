@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block title %}View Events{% endblock %}
+{% block content %}
+  <h2>All Events</h2>
+  <div class="table-responsive">
+    <table class="table table-striped table-hover">
+      <thead>
+        <tr><th>ID</th><th>Name</th><th>Date</th><th>Location</th><th>Description</th></tr>
+      </thead>
+      <tbody>
+      {% for e in events %}
+        <tr>
+          <td>{{ e.id }}</td>
+          <td>{{ e.name }}</td>
+          <td>{{ e.date }}</td>
+          <td>{{ e.location }}</td>
+          <td>{{ e.description }}</td>
+        </tr>
+      {% endfor %}
+      </tbody>
+    </table>
+  </div>
+{% endblock %}

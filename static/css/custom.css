@@ -1,0 +1,24 @@
+/* static/css/custom.css */
+
+/* Global font */
+body {
+    font-family: 'Lato', sans-serif;  
+  }
+  
+  /* Card tweaks */
+  .card {
+    border-radius: 0.75rem;
+  }
+  
+  /* Button style */
+  .btn-success {
+    background-color: #28a745;
+    border-color: #28a745;
+  }
+  
+  /* Footer style */
+  footer {
+    background: #f8f9fa;
+    color: #6c757d;
+  }
+  
