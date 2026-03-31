@@ -2,18 +2,19 @@ from flask import Flask, render_template, request, redirect, url_for, flash
 from db_config import get_connection
 
 app = Flask(__name__)
-app.secret_key = "your_secret_key"  # replace with a secure random key
+app.secret_key = "your_secret_key"  
 
 @app.route("/")
 def home():
     return redirect(url_for("view_donations"))
 
-# ——————————— Add Donation (with donor FK logic) ———————————
+# Add Donation (with donor FK logic)
+
 @app.route("/add_donation", methods=["GET", "POST"])
 def add_donation():
     conn = get_connection()
     cur  = conn.cursor(dictionary=True)
-
+    # POST : Add donation
     if request.method == "POST":
         # 1. Handle new donor creation
         new_name  = request.form.get("new_donor_name", "").strip()
@@ -58,7 +59,8 @@ def add_donation():
     return render_template("add_donation.html", donors=donors, campaigns=campaigns)
 
 
-# ——————————— Add Volunteer ———————————
+# Add Volunteer
+ 
 @app.route("/add_volunteer", methods=["GET", "POST"])
 def add_volunteer():
     if request.method == "POST":
@@ -81,7 +83,8 @@ def add_volunteer():
     return render_template("add_volunteer.html")
 
 
-# ——————————— Add Event ———————————
+# Add Event
+
 @app.route("/add_event", methods=["GET", "POST"])
 def add_event():
     if request.method == "POST":
@@ -105,7 +108,8 @@ def add_event():
     return render_template("add_event.html")
 
 
-# ——————————— Add Campaign ———————————
+# Add Campaign
+
 @app.route("/add_campaign", methods=["GET", "POST"])
 def add_campaign():
     if request.method == "POST":
@@ -128,7 +132,8 @@ def add_campaign():
     return render_template("add_campaign.html")
 
 
-# ——————————— View Donations ———————————
+# View Donations
+
 @app.route("/view_donations")
 def view_donations():
     conn = get_connection()
@@ -148,7 +153,8 @@ def view_donations():
     return render_template("view_donations.html", donations=donations)
 
 
-# ——————————— View Volunteers ———————————
+# View Volunteers
+
 @app.route("/view_volunteers")
 def view_volunteers():
     conn = get_connection()
@@ -160,7 +166,8 @@ def view_volunteers():
     return render_template("view_volunteers.html", volunteers=volunteers)
 
 
-# ——————————— View Events ———————————
+# View Events
+
 @app.route("/view_events")
 def view_events():
     conn = get_connection()
@@ -172,7 +179,8 @@ def view_events():
     return render_template("view_events.html", events=events)
 
 
-# ——————————— View Campaigns ———————————
+# View Campaigns
+
 @app.route("/view_campaigns")
 def view_campaigns():
     conn = get_connection()
